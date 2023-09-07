@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Search Result</title>
+</head>
+<body>
+
+	<th:block th:insert="ViewcartHeader.html"></th:block>
+	
+	<div style="background-color: aliceblue;" class="container-fluid text-center">
+	<h2>Your Searched Product</h2>
+	</div>
+
+
+     <div class="card">
+     
+     <div class="card-body">
+     
+							     <table class="table">
+							  <thead>
+							    <tr>
+							      <th scope="col"></th>
+							      <th scope="col">Name</th>
+							      <th scope="col">Price</th>
+							      <th scope="col">Description</th>
+							      <th scope="col"></th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							    <tr th:if="${products != null}" th:each="product :${products}">
+							      <td scope="row">
+							      <img style="width: 100px; height: 100px" th:src="${product.imageName}" alt="Product Image" src="">
+							      
+							      </td>
+							      <td style="padding: 38px" th:text=${product.name}></td>
+							      <td style="padding: 38px" th:text=${product.price}>
+							      
+							     
+							      
+							      </td>
+							      <td style="padding: 38px" th:text=${product.description}></td>
+							      <td style="padding: 38px" > <a th:href="@{'/addtocart/'+${product.name}}"><button class="btn btn-primary btn-sm">Add To Cart</button></a> </td>
+							    </tr>
+							     <tr th:unless="${products != null}">
+                                   <td colspan="5" style="text-align: center; color: red;"><h4 style="color: red">Oops, Nothing Found!!</h4></td>
+                                 </tr>
+							       
+							   
+							  </tbody>
+							</table>
+								 
+							
+     </div>
+     </div>
+	<th:block th:insert="footer.html"></th:block>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+ <style>
+ table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px;
+    }
+    
+   
+    
+    th, td {
+    padding:12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+      th {
+      background-color: #f2f2f2;
+      padding: 12px;
+    }
+    
+   
+    </style>
+<title>Profile</title>
+</head>
+<body>
+
+	<th:block th:insert="ViewcartHeader.html"></th:block>
+	
+	
+			<div> <a href="/edit"> <button class="btn btn-success pull-right" style="margin:15px;">Edit Info</button> </a> </div>
+			
+			
+			
+			<h2>User Information</h2>
+<div>
+    <div >
+      <table>
+        <tr>
+          <th style="padding: 12px"> First Name</th>
+          <td style="padding: 12px">[[${session.validuser.firstName}]]</td>
+        </tr>
+        <tr>
+          <th style="padding: 12px">Last Name</th>
+          <td style="padding: 12px">[[${session.validuser.lastName}]]</td>
+        </tr>
+        <tr>
+          <th style="padding: 12px">User Name</th>
+          <td style="padding: 12px">[[${session.validuser.userName}]]</td>
+        </tr>
+        <tr>
+          <th style="padding: 12px">Email</th>
+          <td style="padding: 12px">[[${session.validuser.email}]]</td>
+        </tr>
+        <tr>
+          <th style="padding: 12px">Phone No.</th>
+          <td style="padding: 12px">[[${session.validuser.phone}]]</td>
+        </tr>
+         <tr>
+          <th style="padding: 12px">Country</th>
+          <td style="padding: 12px">[[${session.validuser.address.country}]]</td>
+        </tr>
+         <tr>
+          <th style="padding: 12px">State</th>
+          <td style="padding: 12px">[[${session.validuser.address.state}]]</td>
+        </tr>
+         <tr>
+          <th style="padding: 12px">City</th>
+          <td style="padding: 12px">[[${session.validuser.address.city}]]</td>
+        </tr>
+         <tr>
+          <th style="padding: 12px">Zip Code</th>
+          <td style="padding: 12px">[[${session.validuser.address.zip}]]</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+	
+
+
+	<div></a><div style="margin-bottom: 0%"><th:block th:insert="footer.html"></th:block></div></div>
+
+</body>
+</html>

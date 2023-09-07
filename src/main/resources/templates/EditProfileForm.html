@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+<title>Edit Profile</title>
+</head>
+<body>
+<th:block th:insert="ViewcartHeader.html"></th:block>
+
+<div class="container-fluid" style=" display: flex; margin-left:25%; align-items: center;">
+
+		<div class="card">
+			<div class="card-header bg-primary text-center text-white">
+				<h4>Edit User Info</h4>
+			</div>
+
+
+			<div>
+			
+			<form action="/edit" method="post" th:object="${user}">
+                 
+                   
+                   <strong>First Name:</strong>&nbsp;&nbsp; <input type="text" name="firstName" th:field="*{firstName}">&nbsp;&nbsp;&nbsp;&nbsp;
+                   <strong>Last Name:</strong>&nbsp;&nbsp; <input type="text" name="lastName" th:field="*{lastName}"><br><br>
+                   <strong>User Name:</strong>&nbsp;&nbsp; <input type="text" name="userName" th:field="*{userName}"><br><br>
+                   <strong>Password:</strong>&nbsp;&nbsp; <input type="text" name="password" th:field="*{password}"><br><br>
+                   <strong>Email:</strong>&nbsp;&nbsp; <input type="email" name="email" th:field="*{email}"><br><br>
+                   <strong>Phone No.:</strong>&nbsp;&nbsp; <input type="text" name="phone" th:field="*{phone}"><br><br>
+                   <strong>Country:</strong>&nbsp;&nbsp; <input type="text" name="address.country" th:field="*{address.country}">&nbsp;&nbsp;&nbsp;&nbsp;
+                   <strong>City:</strong>&nbsp;&nbsp; <input type="text" name="address.city" th:field="*{address.city}"><br><br>
+                   <strong>State:</strong>&nbsp;&nbsp;
+                   <select class="form-select" name="address.state" th:field="*{address.state}" required="required">
+                  
+                   <option value="select">Select</option>
+                    <option value="state-1">state-1</option>
+                     <option value="state-2">state-2</option>
+                      <option value="state-3">state-3</option>
+                       <option value="state-4">state-4</option>
+                        <option value="state-5">state-5</option>
+                         <option value="state-6">state-6</option>
+                          <option value="state-7">state-7</option>
+                   
+                   </select>
+                   <strong>Zip Code:</strong>&nbsp;&nbsp; <input type="text" name="address.zip" th:field="*{address.zip}"><br><br>
+                     
+                 <div class="row m-2">
+                         <div class="col-4"></div>
+                         <div class="col-6">
+                            <input type="submit" value="Update" class="btn btn-success">
+                         </div>
+                     </div>
+                     
+                     <input type="hidden" th:field="*{id}">
+                     
+                    </form> 
+			</div>
+         </div>
+	</div>
+
+
+
+<th:block th:insert="footer.html"></th:block>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Cameras</title>
+</head>
+<body>
+
+	<th:block th:insert="ViewcartHeader.html"></th:block>
+	
+	<div style="background-color: aliceblue;" class="container-fluid text-center">
+	<h2>Cameras</h2>
+	</div>
+
+
+     <div class="card">
+     
+     <div class="card-body">
+     
+							     <table class="table">
+							  <thead>
+							    <tr>
+							      <th scope="col"></th>
+							      <th scope="col">Name</th>
+							      <th scope="col">Price</th>
+							      <th scope="col">Description</th>
+							      <th scope="col"></th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							    <tr th:each="product :${products}">
+							      <td scope="row">
+							      <img style="width: 100px; height: 100px" th:src="@{'/cameras/'+${product.imageName}}" alt="Product Image" src="">
+							      
+							      </td>
+							      <td style="padding: 38px" th:text=${product.name}></td>
+							      <td style="padding: 38px" th:text=${product.price}></td>
+							      <td style="padding: 38px" th:text=${product.description}></td>
+							      <td style="padding: 38px" > <a th:href="@{'/addtocart/'+${product.name}}"><button class="btn btn-primary btn-sm">Add To Cart</button></a></td>
+							    </tr>
+							   
+							  </tbody>
+							</table>
+     
+     
+     </div>
+     
+     </div>
+
+   <!--  <div class="gallery">
+        <th:block th:each="product : ${products}">
+            <div class="item">
+                <img th:src="@{'/Laptops/' +${ product.imageName}}" alt="Product Image">
+                <h3 th:text="${product.name}"></h3>
+                <p th:text="${product.price}"></p>
+                <p th:text="${product.description}"></p>
+            </div>
+        </th:block>
+    </div>  -->
+ <!-- jQuery Plugins 
+	<script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script> 
+	<script src="js/slick.min.js"></script>
+	<script src="js/nouislider.min.js"></script>
+	<script src="js/jquery.zoom.min.js"></script>
+	<script src="js/main.js"></script>-->
+
+	<th:block th:insert="footer.html"></th:block>
+
+</body>
+</html>

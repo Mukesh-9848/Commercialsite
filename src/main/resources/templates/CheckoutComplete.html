@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Checkout Completion</title>
+</head>
+<body>
+
+<th:block th:insert="ViewcartHeader.html"></th:block>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+<div class="container-fluid" style="margin:15px; padding-top: 8%; padding-bottom: 8%">
+
+   <h3 style="color: green; margin-bottom: 10px">Your Order has been placed.</h3>
+   <h4 style="color: green;">You will receive the the order within 3-5 working days.Thankyou for shopping with us!!</h4>
+  <a href="/home"><button class="btn btn-primary">Go Back to Home Page</button></a> 
+
+</div>
+</div>
+
+
+
+
+
+<th:block th:insert="footer.html"></th:block>
+</body>
+</html>

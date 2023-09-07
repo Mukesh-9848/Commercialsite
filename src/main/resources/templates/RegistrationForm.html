@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Registration Form</title>
+</head>
+
+<body style="background-color: #403e3e">
+ <th:block th:insert="RegisterHeader.html"></th:block>
+ <h2 style="color: green">[[${registered}]]</h2>
+
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-lg-4">
+        <div class="card bg-dark text-light">
+          <h2 class="card-title text-light mt-3" >Registration Form</h2>
+          <p class="card-text" > Please Register if you want Access our Webiste</p>
+          <hr class=" border position-relative " style="width: 70%; align-self: center; margin: 0px;">
+          <div class="card-body">
+            <form class="row g-3 mt-3 needs-validation" action="/register" method="post" novalidate>
+              <div class="col-md-6">
+                <label for="enterfirstname" class="form-label">First name</label>
+                <input type="text" class="form-control rounded-pill" name="firstName" id="enterfirstname" value="" required>
+                <div class="invalid-feedback">
+                  Enter First Name !
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="enterlastname" class="form-label">Last name</label>
+                <input type="text" class="form-control rounded-pill" name="lastName" id="enterlastname" value="" required>
+                <div class="invalid-feedback">
+                  Enter Last Name !
+                </div>
+              </div>
+              <label for="selectusername" class="form-label">Username</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control rounded-pill" name="userName" id="selectusername" aria-describedby="inputGroupPrepend" required>
+                <div class="invalid-feedback">
+                  Please Create a uniq username.
+                </div>
+              </div>
+              <label for="enteremail" class="form-label">Email</label>
+              <div class="input-group has-validation">
+                <input type="email" class="form-control rounded-pill" name="email" id="enteremail" aria-describedby="inputGroupPrepend" required="required">
+                <div class="invalid-feedback">
+                  Please Enter Valid Email.
+                </div>
+              </div>
+              <label for="enterphone" class="form-label">Mobile Number</label>
+              <div class="input-group has-validation">
+                <input type="numbers" class="form-control rounded-pill" name="phone" id="enterphone" placeholder="Enter 10 digit" aria-describedby="inputGroupPrepend" required>
+                <div class="invalid-feedback">
+                  Please Enter Your Contact Number.
+                </div>
+              </div>
+              
+               <label for="enterphone" class="form-label">Country</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control rounded-pill" name="address.country" id="enterphone" aria-describedby="inputGroupPrepend" required>
+                <div class="invalid-feedback">
+                  Please Enter Your Coumtry Name.
+                </div>
+              </div>
+              
+              <div class="col-md-3">
+                <label for="selectcity" class="form-label">City</label>
+                <input type="text" class="form-control rounded-pill" name="address.city" id="selectcity" required>
+                <div class="invalid-feedback">
+                  Please provide a valid city.
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="validationCustom04" class="form-label">State</label>
+                <select class="form-select rounded-pill" name="address.state" id="validationCustom04" required>
+                  <option selected disabled value="">Choose...</option>
+                  <option value="State-1">State-1</option>
+                  <option value="State-2">State-2</option>
+                  <option value="State-3">State-3</option>
+                  <option value="State-4">State-4</option>
+                  <option value="State-5">State-5</option>
+                  <option value="State-6">State-6</option>
+                  <option value="State-7">State-7</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid state.
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label for="zip1" class="form-label">Zip</label>
+                <input type="number" class="form-control rounded-pill" name="address.zip" id="zip1" required>
+                <div class="invalid-feedback">
+                  Please provide a valid zip.
+                </div>
+              </div>
+              <label for="validationPassword">Password</label> <p style="color: red">[[${passmismatch}]]</p>
+              <input type="password" class="form-control rounded-pill" id="validationPassword" minlength="8" name="password" placeholder="Password" value="" required>
+              <label for="cpass">Confirm-Password</label>
+              <input type="password" class="form-control rounded-pill" id="cpass" minlength="8" name="confirmpassword" placeholder="Password" value="" required>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input rounded-pill" type="checkbox" value="checked" name="termsandcondition" required="required">
+                  <label class="form-check-label" for="invalidCheck">
+                    Agree to terms and conditions
+                    You must agree before submitting. </label><p style="color: red">[[${tick}]]</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12 text-center ">
+                <button class="btn btn-secondary" title="Submit Your Form" aria-label="Left Align" name="reg_user" type="submit"> <span class="fa fa-user-plus" aria-hidden="true"></span> Register</button>
+              </div>
+              <span class="extra-line text-center">
+                <span>Already have an account?</span>
+                <a style="color:#d34e4e" href="/login">Login</a>
+                <!--  actually this is login.php link but i use codepen taged login.php -->
+              </span>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Optional JavaScript; choose one of the two! -->
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+     <th:block th:insert="RegisterFooter.html"></th:block>
+    
+</body>
+
+</html>

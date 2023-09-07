@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy</title>
+    <!-- Add your CSS styles or link to an external stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <th:block th:insert="ViewcartHeader.html"></th:block>
+     <!-- Main content section -->
+    <main class="container mt-5">
+        <section>
+            <h2>Introduction</h2>
+            <p>
+                This privacy policy outlines how our website collects, uses, and protects your personal information. We are committed to ensuring the privacy and security of any personal data you provide to us.
+            </p>
+        </section>
+
+        <section>
+            <h4>Data Collection</h4>
+            <p>
+                We collect personal information from you when you fill out a contact form, create an account, or make a purchase on our website. The information we collect may include your name, email address, phone number, and shipping address.
+            </p>
+        </section>
+
+        <section>
+            <h4>Data Usage</h4>
+            <p>
+                We use the collected data to process your orders, provide customer support, and improve our services. We may also use your email address to send you promotional offers or newsletters, but you can opt-out at any time.
+            </p>
+        </section>
+
+        <section>
+            <h4>Data Protection</h4>
+            <p>
+                We take appropriate security measures to protect your personal information and prevent unauthorized access or disclosure. However, please note that no method of data transmission over the internet or electronic storage is completely secure.
+            </p>
+        </section>
+
+        <section>
+            <h4>Third-Party Services</h4>
+            <p>
+                We may use third-party services, such as payment processors or analytics tools, that have their own privacy policies. We recommend reviewing the privacy policies of these third parties as we do not have control over their practices.
+            </p>
+        </section>
+
+        <section>
+            <h4>Changes to the Privacy Policy</h4>
+            <p>
+                We reserve the right to update or modify this privacy policy at any time. Any changes will be posted on this page, and the revised version will become effective immediately.
+            </p>
+        </section>
+
+        <section>
+            <h4>Contact Us</h4>
+            <p>
+                If you have any questions or concerns about our privacy policy, please contact us through the contact information provided on our website.Or, <a href="/contactus">  <button class="btn btn-dark btn-sm"> Click Here </button></a>
+            </p>
+        </section>
+    </main>
+
+       <th:block th:insert="footer.html"></th:block>
+</body>
+</html>

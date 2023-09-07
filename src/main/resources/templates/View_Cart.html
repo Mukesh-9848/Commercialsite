@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+   
+    
+    
+    
+<title>Your Cart</title>
+</head>
+<body>
+
+<th:block th:insert="ViewcartHeader.html"></th:block>
+   <!-- View Cart Section -->
+<div class="view-cart-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="view-cart">
+                    <h3 class="section-title">View Cart</h3>
+                    <div class="cart-table">
+                        <table class="table table-dark">
+                            <thead class="table table-primary">
+                                <tr>
+                                    <th>Product</th>
+                                     <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Description</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="item:${product}">
+                                    <td >
+                                    <img alt="Product Image" style="width: 100px; height: 100px" th:src="${item.imageName}">
+                                    </td>
+                                    <td th:text="${item.name}">
+                                    </td>
+                                    <td th:text="${item.price}"></td>
+                                    <td th:text="${item.description}" ></td>
+                                    <td>  
+                                    <a th:href="@{'/removefromcart/'+${item.id}}"><button class="btn btn-danger btn-sm">Remove</button></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                <h5>Total</h5>
+                                </td>
+                                <td th:text="${totalprice}"></td>
+                                </tr>
+                                 
+                                <!-- Repeat the above table row for each product in the cart -->
+                            </tbody>
+                        </table>
+                    </div>
+                   
+                    <div class="">
+                      <a href="/home" > <button class="btn btn-success">Continue Shopping</button> </a>
+                        <a href="/checkout"> <button class="btn btn-primary"> Checkout</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of View Cart Section -->
+   
+   <th:block th:insert="footer.html"></th:block>
+
+
+</body>
+</html>
